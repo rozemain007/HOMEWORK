@@ -1,4 +1,4 @@
-from adress import Adress
+from Adress import Adress
 
 class Mailing:
 
@@ -6,4 +6,5 @@ class Mailing:
         self.to_address = to_address
         self.from_address = from_address
         self.cost = cost
+
         self.track = track
