@@ -12,6 +12,7 @@ driver.get("http://uitestingplayground.com/classattr")
 blue_button_locator = "[class='btn class2 btn-primary btn-test']"
 searh_blue_button = driver.find_element(By.CSS_SELECTOR, blue_button_locator)
 print("Я нашел голубую кнопку!!!")
-searh_blue_button.click
+searh_blue_button.click()
 print("Я кликнула на голубую кнопку!!!")
+
 sleep(10)
