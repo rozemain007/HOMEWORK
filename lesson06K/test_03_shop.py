@@ -37,5 +37,7 @@ def test_shop():
     total_sum = f"{total}"
     assert total_sum == "58.29"
 
+    driver.quit()
+
 
 
