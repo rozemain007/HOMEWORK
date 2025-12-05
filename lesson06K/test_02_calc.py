@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 from time import sleep
 
 edge_driver_path = r"C:\Users\user\Downloads\edgedriver_win64\msedgedriver.exe"
-driver = webdriver.Chrome()
+driver = webdriver.Edge()
 
 def test_02_calc():
     driver.get("https://bonigarcia.dev/selenium-webdriver-java/slow-calculator.html")
@@ -36,4 +36,6 @@ def test_02_calc():
     result = driver.find_element(By.CSS_SELECTOR, ".screen").text
 
     assert result
+
+    driver.quit()
 

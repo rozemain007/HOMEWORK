@@ -11,10 +11,8 @@ info = ["Иван", "Петров", "Ленина, 55-3", "test@skypro.com", "+7
 
 def test_01_form():
     driver.get("https://bonigarcia.dev/selenium-webdriver-java/data-types.html")
-    for i in range(len(locators)):
-       locator = locators[i]
-       element = driver.find_element(By.NAME, locator)
-       element.send_keys(info[i])
+    for loc, value in zip(locators, info):
+        driver.find_element(By.NAME, loc).send_keys(value)
 
     button = driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]')
     button.click()
