@@ -26,8 +26,8 @@ class Shop:
     def user_info(self, user_info_id, user_info):
         self.driver.find_element(By.ID, user_info_id).send_keys(user_info)
 
-    def assert_result(self, exp_result):
+    def assert_result(self):
          total = self.driver.find_element(By.CSS_SELECTOR, "summary_total_label")
          total_sum = f"{total}"
-         assert total_sum == exp_result
+         return  total_sum
 

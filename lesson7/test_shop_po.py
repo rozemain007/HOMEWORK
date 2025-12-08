@@ -24,6 +24,6 @@ def test_shop():
 
     driver.find_element(By.ID, "continue").click()
 
-    shop.assert_result("$58.29")
+    assert shop.assert_result == "$58.29"
 
     driver.quit()
