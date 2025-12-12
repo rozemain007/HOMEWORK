@@ -35,7 +35,7 @@ class Shop:
         """
         Получение итоговой суммы после добавления товаров в корзину
         """
-        total = self.driver.find_element(By.CSS_SELECTOR, "summary_total_label")
+        total = self.driver.find_element(By.CSS_SELECTOR, "summary_total_label").text
         total_sum = f"{total}"
         return  total_sum
 

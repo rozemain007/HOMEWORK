@@ -15,7 +15,7 @@ def test_shop():
         shop = Shop(driver)
 
     with allure.step("Авторизуемся в магазине"):
-        shop.login( "standard_user", "secret_souce")
+        shop.login( "standard_user", "secret_sauce")
 
     with allure.step("Добавляем товары в корзину"):
         shop.add_items("add-to-cart-sauce-labs-backpack")
