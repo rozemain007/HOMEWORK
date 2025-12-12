@@ -1,17 +1,12 @@
+import allure
 from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.edge.service import Service as EdgeService
-#from webdriver_manager.microsoft import EdgeChromiumDriverManager
-from selenium.webdriver.common.by import By
-from time import sleep
 from page_hw.calculator import Calculator
 edge_driver_path = r"C:\Users\user\Downloads\edgedriver_win64\msedgedriver.exe"
 driver = webdriver.Chrome()
-import allure
+
 
 @allure.title("Тестирование калькулятора")
-@allure.description("Тестирование соответсвия итогового значения ожидаемому значению")
+@allure.description("Тестирование соответсвия итогового значения ожидаемому")
 @allure.feature("READ")
 @allure.severity("Medium")
 def test_02_calc():
@@ -21,7 +16,7 @@ def test_02_calc():
     with allure.step("Вводим значение ожидания"):
         calculator.delay("45")
 
-    with allure.step("Нажимаем на кнопки для совершения математической операции"):
+    with allure.step("Нажимаем на кнопки для совершения матем. операции"):
         calculator.click_button("7")
         calculator.click_button("+")
         calculator.click_button("8")
@@ -34,4 +29,3 @@ def test_02_calc():
         assert result == "15"
 
     driver.quit()
-

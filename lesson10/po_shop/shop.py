@@ -2,34 +2,30 @@ from selenium import webdriver
 from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.common.by import By
 
-gecko_driver_path: str = r'C:\Users\user\Downloads\gecko_driver\geckodriver.exe'
-service: Service = Service(executable_path=gecko_driver_path)
-driver = webdriver.Firefox()
-
 class Shop:
     
     def __init__(self, driver):
         self.driver = driver
-        driver.get("https://www.saucedemo.com/")
+        self.driver.get("https://www.saucedemo.com/")
 
-    def login(self, login:str, password:str):
+    def login(self, login: str, password: str):
         """
         Авторизация пользователя
         """
         user_name = self.driver.find_element(By.ID, "user-name")
-        password = self.driver.find_element(By.ID, "password")
+        password_var = self.driver.find_element(By.ID, "password")
         user_name.send_keys(login)
-        password.send_keys(password)
+        password_var.send_keys(password)
         login_button = self.driver.find_element(By.ID, "login-button")
         login_button.click()
 
-    def add_items(self, item_id):
+    def add_items(self, item_id: str):
         """
         Добавление товара в корзину
         """
         self.driver.find_element(By.ID, item_id).click()
 
-    def user_info(self, user_info_id, user_info):
+    def user_info(self, user_info_id: str, user_info: str):
         """
         Добавление информации о клиенте для совершения доставки
         """

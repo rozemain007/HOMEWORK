@@ -12,7 +12,7 @@ class Calculator:
         self.driver = driver
         driver.get("https://bonigarcia.dev/selenium-webdriver-java/slow-calculator.html")
 
-    def delay(self, delay):
+    def delay(self, delay:int):
         """
         Находим элемент по локатору "delay" и отправляем в него нужное значение
         """
@@ -20,14 +20,14 @@ class Calculator:
         element.clear()
         element.send_keys(delay)
 
-    def click_button(self, button):
+    def click_button(self, button:str):
         f"""
         Находим кнопку {button} и кликаем на неё
         """
         xpath = f"//span[text()='{button}']"
         self.driver.find_element(By.XPATH, xpath).click()
 
-    def return_result(self, result) -> str:
+    def return_result(self, result:str) -> str:
         """
         Получаем результат работы калькулятора
         """

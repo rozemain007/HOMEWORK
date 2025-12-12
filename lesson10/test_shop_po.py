@@ -3,14 +3,11 @@ from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.common.by import By
 from po_shop.shop import Shop
 import allure
-
-# Укажите путь к GeckoDriver, если он не в PATH
-gecko_driver_path: str = r'C:\Users\user\Downloads\gecko_driver\geckodriver.exe'
-service: Service = Service(executable_path=gecko_driver_path)
 driver = webdriver.Firefox()
 
-@allure.title("Тестирование магазина")
-@allure.description("Тестирование соответсвия итоговой суммы покупок ожидаемой суммы")
+
+@allure.title("Тест магазина")
+@allure.description("Тесn соответсвия итоговой суммы покупок ожидаемой")
 @allure.feature("READ")
 @allure.severity("Medium")
 def test_shop():
@@ -18,7 +15,7 @@ def test_shop():
         shop = Shop(driver)
 
     with allure.step("Авторизуемся в магазине"):
-        shop.login(driver, "standard_user", "secret_sauce")
+        shop.login( "standard_user", "secret_souce")
 
     with allure.step("Добавляем товары в корзину"):
         shop.add_items("add-to-cart-sauce-labs-backpack")
@@ -37,7 +34,7 @@ def test_shop():
     with allure.step("Отправляем данные о пользователе"):
         driver.find_element(By.ID, "continue").click()
 
-    with allure.step("Получаем итоговую сумму покупки, сравниваем её с ожидаемой"):
+    with allure.step("Получаем итоговую сумму, сравниваем её с ожидаемой"):
         assert shop.assert_result == "$58.29"
 
     driver.quit()
