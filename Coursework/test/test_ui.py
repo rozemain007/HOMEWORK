@@ -8,7 +8,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from time import sleep
 from page_object.methods import UI_methods
 driver = webdriver.Chrome()
-
 @allure.title("Поиск товара - валидное значение")
 def test_search_val():
     browser = UI_methods(driver)
@@ -42,12 +41,13 @@ def test_add_to_basket():
     search_phrase = "Python"
     browser.send_search_str(search_phrase)
     browser.add_book()
+    items = browser.busket()
+    assert items == "1 товар"
 
-    # wait = WebDriverWait(driver, 10)
-    # wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "h1.search-title__head")))
-    #
-    # driver.implicitly_wait(10)
-    # driver.execute_script("window.scrollBy(0, 800);")
-    #
-    # wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "div.product-buttons.product-card__actions")))
-    # driver.find_element(By.CSS_SELECTOR, 'div.product-buttons.product-card__actions').click()
+@allure.title("Удаление товара из корзины")
+def test_remove_book():
+    browser = UI_methods(driver)
+    search_phrase = "Пайтон"
+    browser.send_search_str(search_phrase)
+    browser.add_book()
+    browser.remove_item()

@@ -1,6 +1,6 @@
 import allure
 from page_object.methods import Api_methods
-token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VzZXItcmlnaHQiLCJzdWIiOjIzNjM4MzEwLCJpYXQiOjE3NjU1MjgxODYsImV4cCI6MTc2NTUzMTc4NiwidHlwZSI6MjAsImp0aSI6IjAxOWIxMWFlLTJmZGItN2MzMS1iOTMzLTcxYjZmYjEzOWYyMCIsInJvbGVzIjoxMH0.1YUC6c4AwitLQBeuM2PQg7ih7DeoyGp8N7etimlt9DI"
+token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3VzZXItcmlnaHQiLCJzdWIiOjY5MjcxMzIsImlhdCI6MTc2NTY0NzU2NSwiZXhwIjoxNzY1NjUxMTY1LCJ0eXBlIjoyMCwianRpIjoiMDE5YjE4Y2ItYzI2Mi03YTAxLWEwNGYtZTdhNTE5MDQ4OTdkIiwicm9sZXMiOjEwfQ.Vo6t2m4FwtlTHhGl1Gtr4y1CH9YDmFxM4vHC0QeZt3w'
 base_url = "https://web-agr.chitai-gorod.ru/web/api/v2/search"
 
 
@@ -8,7 +8,7 @@ base_url = "https://web-agr.chitai-gorod.ru/web/api/v2/search"
 def test_search_kir():
     url = Api_methods(base_url)
     with allure.step("Отправляем запрос кириллицей и получаем status_code"):
-        search = Api_methods.search(url, token, "Читай" )
+        search = Api_methods.search(url, token, "Читай")
     with allure.step("Сравниваем статус-код с ожидаемым"):
         assert search == 200
 

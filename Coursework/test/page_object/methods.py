@@ -31,6 +31,7 @@ class Api_methods():
 
         return req.status_code
 
+
 class UI_methods():
 
     def __init__(self, driver):
@@ -46,6 +47,7 @@ class UI_methods():
         button.send_keys(search_str)
         wait = WebDriverWait(self.driver, 20)
         wait.until(EC.text_to_be_present_in_element_attribute((By.NAME, "search"), "value", search_str))
+        self.driver.implicitly_wait(10)
         button.send_keys(Keys.RETURN)
 
     def get_founded_book(self):
@@ -81,6 +83,17 @@ class UI_methods():
 
         wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "div.product-buttons.product-card__actions")))
         self.driver.find_element(By.CSS_SELECTOR, 'div.product-buttons.product-card__actions').click()
+
+    def busket(self) -> str:
+        self.driver.get("https://www.chitai-gorod.ru/cart")
+        count_items = self.driver.find_element(By.CSS_SELECTOR, "div.info-item__title").text
+        text = f"{count_items}"
+        return text
+
+    def remove_item(self) -> str:
+        self.driver.find_element(By.CSS_SELECTOR, "button.cart-item__delete-button").click()
+        self.driver.refresh()
+
 
 
 
