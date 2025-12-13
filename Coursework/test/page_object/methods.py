@@ -73,7 +73,14 @@ class UI_methods():
         """
         Добавление в корзину
         """
+        wait = WebDriverWait(self.driver, 10)
+        wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "h1.search-title__head")))
 
+        self.driver.implicitly_wait(10)
+        self.driver.execute_script("window.scrollBy(0, 800);")
+
+        wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "div.product-buttons.product-card__actions")))
+        self.driver.find_element(By.CSS_SELECTOR, 'div.product-buttons.product-card__actions').click()
 
 
 

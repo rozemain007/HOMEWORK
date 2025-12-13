@@ -41,5 +41,13 @@ def test_add_to_basket():
     browser = UI_methods(driver)
     search_phrase = "Python"
     browser.send_search_str(search_phrase)
+    browser.add_book()
 
-    driver.implicitly_wait(10)
+    # wait = WebDriverWait(driver, 10)
+    # wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "h1.search-title__head")))
+    #
+    # driver.implicitly_wait(10)
+    # driver.execute_script("window.scrollBy(0, 800);")
+    #
+    # wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "div.product-buttons.product-card__actions")))
+    # driver.find_element(By.CSS_SELECTOR, 'div.product-buttons.product-card__actions').click()
