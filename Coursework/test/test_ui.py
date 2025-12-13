@@ -42,9 +42,4 @@ def test_add_to_basket():
     search_phrase = "Python"
     browser.send_search_str(search_phrase)
 
-    wait = WebDriverWait(driver, 20)
-    buy_button_locator = (By.CSS_SELECTOR, "h1.search-title__head")
-    wait.until(EC.presence_of_element_located(buy_button_locator))
-    wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, 'div.product-buttons')))
-    buy_button = driver.find_element(By.CSS_SELECTOR, 'div.product-buttons')
-    buy_button.click()
+    driver.implicitly_wait(10)

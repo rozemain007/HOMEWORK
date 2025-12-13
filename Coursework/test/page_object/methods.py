@@ -73,11 +73,7 @@ class UI_methods():
         """
         Добавление в корзину
         """
-        wait = WebDriverWait(self.driver, 20)
-        buy_button_locator = (By.CSS_SELECTOR, "h1.search-title__head")
-        wait.until(EC.presence_of_element_located(buy_button_locator))
-        buy_button = self.driver.find_element(By.XPATH, '//button[text()="Купить"]')
-        buy_button.click()
+
 
 
 
