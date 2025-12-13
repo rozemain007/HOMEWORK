@@ -35,6 +35,6 @@ def test_shop():
         driver.find_element(By.ID, "continue").click()
 
     with allure.step("Получаем итоговую сумму, сравниваем её с ожидаемой"):
-        assert shop.assert_result == "$58.29"
+        assert shop.assert_result() == "$58.29"
 
     driver.quit()
